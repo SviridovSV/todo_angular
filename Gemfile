@@ -16,6 +16,8 @@ gem 'angular-rails-templates'
 gem 'responders'
 gem 'devise'
 gem 'haml'
+gem 'cancancan'
+gem 'ffaker'
 
 group :development, :test do
   gem 'rspec-rails'
