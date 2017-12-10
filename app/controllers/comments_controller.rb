@@ -10,6 +10,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  def update
+    @comment.attachment = params[:file]
+    if @comment.save
+      render json: @comment.attachment
+    else
+      render(status: 422, json: @comment.errors.full_messages)
+    end
+  end
+
   def destroy
     respond_with @comment.destroy
   end
@@ -17,6 +26,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:title, :task_id)
+    params.require(:comment).permit(:title, :task_id, :file)
   end
 end

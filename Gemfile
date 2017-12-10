@@ -7,45 +7,45 @@ end
 
 ruby '2.4.1'
 
-gem 'rails', '~> 5.1.4'
+gem 'acts_as_list'
+gem 'angular-rails-templates'
+gem 'angular_rails_csrf'
+gem 'cancancan'
+gem 'carrierwave'
+gem 'devise'
+gem 'ffaker'
+gem 'figaro'
+gem 'haml'
+gem 'jbuilder', '~> 2.5'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
+gem 'rails', '~> 5.1.4'
+gem 'responders'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'jbuilder', '~> 2.5'
-gem 'angular_rails_csrf'
-gem 'angular-rails-templates'
-gem 'responders'
-gem 'devise'
-gem 'haml'
-gem 'cancancan'
-gem 'ffaker'
-gem 'acts_as_list'
-gem 'figaro'
 
 gem 'rails_12factor', group: :production
 
 group :development, :test do
-  gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'pry'
+  gem 'rspec-rails'
 end
 
 group :test do
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'shoulda-matchers'
-  gem 'ffaker'
-  gem 'rails-controller-testing'
+  gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'poltergeist'
-  gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem 'rails-controller-testing'
+  gem 'shoulda-matchers'
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
