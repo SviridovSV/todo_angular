@@ -5,7 +5,6 @@ angular.module('todoList')
 'tasks',
 function($scope, Auth, tasks) {
   $scope.createTask = function(scope) {
-    if(!$scope.taskTitle || $scope.taskTitle === "") { return; }
     tasks.create($scope.taskTitle, scope.project.id).then(function(response) {
       scope.project.tasks.push(response);
       scope.taskTitle = "";
@@ -33,6 +32,21 @@ function($scope, Auth, tasks) {
   $scope.deleteTask = function(scope) {
     tasks.delete(scope.task.id).then(function() {
       scope.project.tasks.splice(scope.project.tasks.indexOf(scope.task), 1);
+    });
+  };
+
+  $scope.reorderTask = function(scope, direction) {
+    tasks.reorder(scope.task.id, direction).then(function() {
+      var shift = (direction === 'up') ? -1 : 1;
+      var arr = scope.project.tasks;
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i].position === scope.task.position + shift) {
+          var temp = arr[i].position;
+          arr[i].position = scope.task.position;
+          scope.task.position = temp;
+          break;
+        }
+      }
     });
   };
 

@@ -21,6 +21,9 @@ gem 'haml'
 gem 'cancancan'
 gem 'ffaker'
 gem 'acts_as_list'
+gem 'figaro'
+
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'rspec-rails'
