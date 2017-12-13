@@ -10,7 +10,7 @@ RSpec.describe CommentsController, type: :controller do
     context 'when params valid' do
       def send_post
         post :create, format: :json,
-             params: { comment: { title: "Test", task_id: task.id } }
+                      params: { comment: { title: 'Test', task_id: task.id } }
       end
 
       it 'responds with status success' do
@@ -20,18 +20,18 @@ RSpec.describe CommentsController, type: :controller do
 
       it 'responds with json' do
         send_post
-        expect(response.content_type).to eq("application/json")
+        expect(response.content_type).to eq('application/json')
       end
 
       it 'creates new task' do
-        expect{ send_post }.to change(Comment, :count).by(1)
+        expect { send_post }.to change(Comment, :count).by(1)
       end
     end
 
     context 'when params invalid' do
       before do
         post :create, format: :json,
-            params: { comment: { title: "", task_id: task.id } }
+                      params: { comment: { title: '', task_id: task.id } }
       end
 
       it 'responds with status 422' do
@@ -39,14 +39,14 @@ RSpec.describe CommentsController, type: :controller do
       end
 
       it 'responds with json' do
-        expect(response.content_type).to eq("application/json")
+        expect(response.content_type).to eq('application/json')
       end
 
       it "doesn't creates new task" do
-        expect{
+        expect do
           post :create, format: :json,
-               params: { comment: { title: "", task_id: task.id } }
-        }.not_to change(Comment, :count)
+                        params: { comment: { title: '', task_id: task.id } }
+        end.not_to change(Comment, :count)
       end
     end
   end
@@ -60,9 +60,9 @@ RSpec.describe CommentsController, type: :controller do
     end
 
     it 'delete task' do
-      expect {
+      expect do
         delete :destroy, format: :json, params: { id: @comment.id }
-      }.to change(Comment, :count).by(-1)
+      end.to change(Comment, :count).by(-1)
     end
 
     it "doesn't delete wrong task" do
