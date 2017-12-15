@@ -24,6 +24,7 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 gem 'responders'
+gem 'rubocop', '~> 0.52.0', require: false
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
@@ -37,7 +38,9 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'capybara-angular'
   gem 'database_cleaner'
+  gem 'launchy'
   gem 'phantomjs', require: 'phantomjs/poltergeist'
   gem 'poltergeist'
   gem 'rails-controller-testing'
