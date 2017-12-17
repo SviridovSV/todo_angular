@@ -23,7 +23,7 @@ function($scope, $state, $location, Auth, Flash){
     Auth.register($scope.user).then(function(){
       $location.path('/');
     }, function(response){
-      msg = "Password" + response.data.errors.password;
+      msg = "Password " + response.data.errors.password;
       if (response.data.errors.email) {
         msg = "Email " + response.data.errors.email;
       }
