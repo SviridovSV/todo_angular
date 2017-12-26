@@ -5,8 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.4.1'
-
 gem 'acts_as_list'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
@@ -55,3 +53,5 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+ruby '2.4.1'
