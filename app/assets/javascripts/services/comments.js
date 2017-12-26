@@ -13,7 +13,7 @@ function($http, $q, Flash) {
         Flash.create('danger', response.data, 3000, {}, true);
         return $q.reject(response.data);
       });
-    },
+},
 
     delete: function(id) {
       return $http.delete('/comments/' + id + '.json').then(function(response) {

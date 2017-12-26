@@ -8,6 +8,7 @@ feature 'comments managing', js: true do
     @project = create(:project, user: user)
     @task = create(:task, project: @project)
     @comment = create(:comment, task: @task)
+    allow_any_instance_of(ActionController::Base).to receive(:protect_against_forgery?).and_return(true)
     visit '/'
   end
 
@@ -35,7 +36,7 @@ feature 'comments managing', js: true do
     end
   end
 
-  scenario 'remove comment' do
+  scenario 'remove task' do
     find('.task-container').hover
     find('.glyphicon-comment').click
     find('.comment').hover

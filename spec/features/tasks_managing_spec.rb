@@ -7,6 +7,7 @@ feature 'tasks managing', js: true do
     login_as(user, scope: :user)
     @project = create(:project, user: user)
     @task = create(:task, project: @project)
+    allow_any_instance_of(ActionController::Base).to receive(:protect_against_forgery?).and_return(true)
     visit '/'
   end
 
