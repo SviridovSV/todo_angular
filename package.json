@@ -1,5 +1,7 @@
 {
   "name": "todo_angular",
-  "private": true,
-  "dependencies": {}
+  "version": "1.0.0",
+  "dependencies": {
+    "bower": "1.8.2"
+  }
 }
